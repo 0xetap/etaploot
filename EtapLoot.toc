@@ -1,0 +1,46 @@
+## Interface: 120100, 120007, 120005, 120001, 120000
+## Title: EtapLoot
+## Notes: Tracks recently looted items in a configurable on-screen window.
+## Author: EtapLoot
+## Version: 1.0
+## IconTexture: Interface\AddOns\EtapLoot\Media\EtapLootIcon.png
+## SavedVariables: EtapLootDB
+
+
+Data\Defaults.lua
+Data\Themes.lua
+
+Core\Profiles.lua
+Core\LootParser.lua
+Core\ProfessionDetection.lua
+Core\Filters.lua
+Core\History.lua
+Core\Money.lua
+Core\GroupLoot.lua
+Core\Refresh.lua
+
+UI\Constants.lua
+UI\RowsAndTooltips.lua
+UI\AutoCollapse.lua
+UI\WindowLayout.lua
+UI\Themes.lua
+UI\Tabs.lua
+UI\Window.lua
+UI\MinimapButton.lua
+UI\Renderer.lua
+
+Config\ControlBase.lua
+Config\Checkbox.lua
+Config\Slider.lua
+Config\Dropdown.lua
+Config\PageHelpers.lua
+Config\Pages\General.lua
+Config\Pages\Consolidation.lua
+Config\Pages\Profiles.lua
+Config\Pages\Loot.lua
+Config\Pages\Personal.lua
+Config\Window.lua
+
+Core\Events.lua
+Core\SpeedLoot.lua
+Core\Commands.lua
