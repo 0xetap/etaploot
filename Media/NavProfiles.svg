@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Identical cards and portraits. Dark filled silhouettes avoid relying on holes. -->
+  <rect x="2" y="2" width="12" height="14" fill="#92DAF7"/>
+  <circle cx="8" cy="6" r="2" fill="#101B24"/>
+  <path fill="#101B24" d="M5 14h6v-2c0-1.75-1.2-3-3-3s-3 1.25-3 3z"/>
+  <rect x="10" y="8" width="12" height="14" fill="#F7C928"/>
+  <circle cx="16" cy="12" r="2" fill="#101B24"/>
+  <path fill="#101B24" d="M13 20h6v-2c0-1.75-1.2-3-3-3s-3 1.25-3 3z"/>
+</svg>

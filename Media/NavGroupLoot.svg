@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Compact 7 x 7 tiles leave room for the same list bars as Personal. -->
+  <path fill="#92DAF7" d="M1 5h7v3H6V7H3v3h1v2H1z"/>
+  <path fill="#F7C928" d="M4 8h7v7H4zM6 10v3h3v-3z"/>
+  <path fill="#92DAF7" d="M12 5h10v2H12zM12 11h10v2H12zM12 17h10v2H12z"/>
+</svg>

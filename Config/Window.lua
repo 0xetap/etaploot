@@ -45,8 +45,12 @@ function EL:CreateConfig()
     if PixelUtil then PixelUtil.SetHeight(header, 27) else header:SetHeight(27) end
     header:SetBackdrop({ bgFile = "Interface/Buttons/WHITE8X8" })
     header:SetBackdropColor(0.055, 0.065, 0.09, 1)
+    local headerIcon = header:CreateVectorGraphics(nil, "OVERLAY")
+    SetPixelSize(headerIcon, 18, 18)
+    SetPixelPoint(headerIcon, "LEFT", header, "LEFT", 8, 0)
+    headerIcon:SetSVG("Interface\\AddOns\\EtapLoot\\Media\\EtapLootIcon.svg")
     local logo = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    logo:SetPoint("LEFT", 8, 0)
+    logo:SetPoint("LEFT", headerIcon, "RIGHT", 6, 0)
     logo:SetJustifyH("CENTER")
     logo:SetJustifyV("MIDDLE")
     logo:SetText("EtapLoot")
@@ -57,7 +61,7 @@ function EL:CreateConfig()
     subtitle:SetPoint("LEFT", header, "LEFT", 188, 0)
     subtitle:SetJustifyH("LEFT")
     subtitle:SetJustifyV("MIDDLE")
-    subtitle:SetText("Track personal and group loot at a glance.")
+    subtitle:SetText("Track personal and group loot at a glance. Meow.")
 
     local close = CreateFrame("Button", nil, header, "BackdropTemplate")
     SetPixelSize(close, 20, 19)
@@ -129,6 +133,22 @@ function EL:CreateConfig()
     local groupDisplayLabel, groupValueLabel = groupParts.displayLabel, groupParts.valueLabel
     local groupCollapseLabel, groupSellModeLabel = groupParts.collapseLabel, groupParts.sellModeLabel
 
+    local navIconFiles = {
+        general = "NavGeneral.svg",
+        personal = "NavPersonalLoot.svg",
+        group = "NavGroupLoot.svg",
+        consolidation = "NavConsolidation.svg",
+        profiles = "NavProfiles.svg",
+    }
+
+    local function CreateNavIcon(parent, kind)
+        local icon = parent:CreateVectorGraphics(nil, "ARTWORK")
+        SetPixelSize(icon, 18, 18)
+        SetPixelPoint(icon, "LEFT", parent, "LEFT", 15, 0)
+        icon:SetSVG("Interface\\AddOns\\EtapLoot\\Media\\" .. navIconFiles[kind])
+        return icon
+    end
+
     local tabs = {}
     local function SelectPage(page)
         generalPage:SetShown(page == generalPage)
@@ -143,7 +163,7 @@ function EL:CreateConfig()
         config.selectedPage = page
     end
 
-    local function CreateTab(text, page, y)
+    local function CreateTab(text, page, y, iconKind)
         local tab = CreateFrame("Button", nil, sidebar, "BackdropTemplate")
         SetPixelPoint(tab, "TOPLEFT", sidebar, "TOPLEFT", 0, y)
         SetPixelPoint(tab, "TOPRIGHT", sidebar, "TOPRIGHT", 0, y)
@@ -155,8 +175,9 @@ function EL:CreateConfig()
         SetPixelPoint(tab.indicator, "BOTTOMLEFT", tab, "BOTTOMLEFT", 4, 3)
         if PixelUtil then PixelUtil.SetWidth(tab.indicator, 3) else tab.indicator:SetWidth(3) end
         tab.indicator:Hide()
+        tab.icon = CreateNavIcon(tab, iconKind)
         tab.text = tab:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-        tab.text:SetPoint("LEFT", 20, 0)
+        tab.text:SetPoint("LEFT", 39, 0)
         tab.text:SetText(text)
         tab.page = page
         function tab:ApplySelectionTheme(selected)
@@ -164,10 +185,12 @@ function EL:CreateConfig()
             self:SetBackdropColor(1, 1, 1, 0)
             if selected then
                 self.text:SetTextColor(theme.accent[1], theme.accent[2], theme.accent[3], 1)
+                self.icon:SetAlpha(1)
                 self.indicator:SetColorTexture(theme.accent[1], theme.accent[2], theme.accent[3], 1)
                 self.indicator:Show()
             else
                 self.text:SetTextColor(0.68, 0.68, 0.72, 1)
+                self.icon:SetAlpha(0.58)
                 self.indicator:Hide()
             end
         end
@@ -183,11 +206,11 @@ function EL:CreateConfig()
         return tab
     end
 
-    CreateTab("General", generalPage, -12)
-    CreateTab("Personal Loot Options", stylingPage, -52)
-    CreateTab("Group Loot Options", groupStylingPage, -92)
-    CreateTab("Loot Consolidation", consolidationPage, -132)
-    CreateTab("Profiles", profilesPage, -172)
+    CreateTab("General", generalPage, -12, "general")
+    CreateTab("Personal Loot Options", stylingPage, -52, "personal")
+    CreateTab("Group Loot Options", groupStylingPage, -92, "group")
+    CreateTab("Loot Consolidation", consolidationPage, -132, "consolidation")
+    CreateTab("Profiles", profilesPage, -172, "profiles")
     SelectPage(generalPage)
 
     local installedVersion = C_AddOns.GetAddOnMetadata(ADDON_NAME, "Version") or "Development"

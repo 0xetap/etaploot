@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- One continuous silhouette prevents seams at the branch junctions. -->
+  <path fill="#92DAF7" d="M2 4h6.414l6 6H22v2h-7.586l-6 6H2v-2h5.586l4-4H2v-2h9.586l-4-4H2z"/>
+  <rect x="14" y="10" width="8" height="2" fill="#F7C928"/>
+</svg>

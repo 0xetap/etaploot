@@ -2,7 +2,7 @@
 ## Title: EtapLoot
 ## Notes: Tracks recently looted items in a configurable on-screen window.
 ## Author: EtapLoot
-## Version: 1.0
+## Version: 1.0.1
 ## IconTexture: Interface\AddOns\EtapLoot\Media\EtapLootIcon.png
 ## SavedVariables: EtapLootDB
 

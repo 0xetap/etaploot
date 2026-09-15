@@ -1,6 +1,6 @@
 # EtapLoot
 
-EtapLoot is a customizable loot display for World of Warcraft Retail. 
+EtapLoot is a customizable loot display for World of Warcraft: Midnight. 
 
 It keeps the rewards you receive in a compact on-screen window, where they remain easy to review without opening your bags or searching through chat. The addon was developed out of (my own, personal) belief that chat is for communication and has nothing to do with items, loot, currencies, and so on - so loot must go somewhere else.
 
@@ -11,7 +11,7 @@ It keeps the rewards you receive in a compact on-screen window, where they remai
    `World of Warcraft/_retail_/Interface/AddOns/`
 3. Start the game and enable EtapLoot in the AddOns list if necessary.
 
-EtapLoot is made for World of Warcraft Retail. Maybe it works for the various iterations of Classic - but it's untested.
+EtapLoot is made for World of Warcraft: Midnight. Maybe it works for the various iterations of Classic or the upcoming Forever - but it's untested.
 
 ## Getting started
 
@@ -22,8 +22,6 @@ You can also use:
 - `/el` - show or hide the loot window
 - `/el config` - open the settings
 - `/el clear` - clear the Personal or Group tab currently being viewed
-
-Settings are saved automatically.
 
 ## Using the loot window
 
